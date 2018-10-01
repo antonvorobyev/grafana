@@ -67,6 +67,8 @@ func (handler *DefaultResultHandler) Handle(evalContext *EvalContext) error {
 			}
 
 			handler.log.Error("Failed to save state", "error", err)
+		} else {
+			evalContext.Rule.StateChanges = cmd.Result.StateChanges
 		}
 
 		// save annotation
